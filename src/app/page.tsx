@@ -237,7 +237,7 @@ export default function HomePage() {
                     </svg>
                   ))}
                 </div>
-                <p className="text-white italic mb-4">"This platform transformed how I approach learning. The courses are comprehensive and the instructors are top-notch."</p>
+                <p className="text-white italic mb-4">&quot;This platform transformed how I approach learning. The courses are comprehensive and the instructors are top-notch.&quot;</p>
                 <p className="text-indigo-300 font-semibold">- Student Name</p>
               </div>
             ))}

@@ -15,6 +15,7 @@ interface User {
     type: string;
     description: string;
   };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
 
@@ -41,7 +42,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const initAuth = async () => {
       const storedToken = getCookie('token') as string | undefined;
-      
+
       if (storedToken) {
         setToken(storedToken);
         try {
@@ -53,7 +54,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           setToken(null);
         }
       }
-      
+
       setIsLoading(false);
     };
 
@@ -63,7 +64,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const login = async (newToken: string) => {
     setToken(newToken);
     setCookie('token', newToken, { maxAge: 60 * 60 * 24 * 7 }); // 7 days
-    
+
     try {
       const userData = await fetchUserProfile(newToken);
       setUser(userData);
@@ -86,21 +87,21 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   // Function to check if user has required role
   const checkPermission = (requiredRole: string): boolean => {
     if (!user) return false;
-    
+
     // Admin has access to everything
     if (user.role?.type === 'admin') return true;
-    
+
     // Check if user has the required role
     return user.role?.type === requiredRole;
   };
 
-  const value = { 
-    user, 
-    token, 
-    isLoading, 
+  const value = {
+    user,
+    token,
+    isLoading,
     isAdmin,
     isStudent,
-    login, 
+    login,
     logout,
     checkPermission
   };

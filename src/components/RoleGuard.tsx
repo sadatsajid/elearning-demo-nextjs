@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 
 interface RoleGuardProps {
   children: ReactNode;
-  allowedRole: 4 | 3 | any;
+  allowedRole: 'admin' |'student' | 'any';
   redirectTo?: string;
 }
 
@@ -15,7 +15,7 @@ export default function RoleGuard({
   allowedRole,
   redirectTo = '/login'
 }: RoleGuardProps) {
-  const { user, isLoading, isAdmin, isStudent, checkPermission } = useAuth();
+  const { user, isLoading, isAdmin, isStudent } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function RoleGuard({
     if (allowedRole === 'any') return;
 
     // Check if the user has the required role
-    const hasPermission = allowedRole === 4 ? isAdmin :
+    const hasPermission = allowedRole === 'admin' ? isAdmin :
       allowedRole === 'student' ? isStudent : false;
 
     if (!hasPermission) {

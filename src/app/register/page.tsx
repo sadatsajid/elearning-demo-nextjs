@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -25,11 +24,10 @@ export default function RegisterPage() {
   const [error] = useState<string | null>(null);
   const [isLoading] = useState(false);
 //   const { login } = useAuth();
-  const router = useRouter();
 
   const password = watch('password', '');
 
-  const onSubmit = async (_data: RegisterFormData) => {
+  const onSubmit = async () => {
     return
   };
 

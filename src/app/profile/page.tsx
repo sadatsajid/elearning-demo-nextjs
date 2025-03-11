@@ -92,7 +92,7 @@ export default function ProfilePage() {
                         placeholder="Headline"
                       />
                       <div className="absolute right-3 top-2 text-gray-400 text-sm">60</div>
-                      <p className="text-xs text-gray-500 mt-1">Add a professional headline like, "Instructor at Udemy" or "Architect"</p>
+                      <p className="text-xs text-gray-500 mt-1">Add a professional headline like, &quot;Instructor at Udemy&quot; or &quot;Architect&quot;</p>
                     </div>
                     <div>
                       {/* Rich text editor toolbar - simplified */}
