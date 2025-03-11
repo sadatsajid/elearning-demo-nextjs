@@ -152,7 +152,7 @@ export default function HomePage() {
             {categories.map((category, index) => (
               <Link
                 key={index}
-                href={`/category/${category.toLowerCase().replace(/\s+/g, '-')}`}
+                href="/"
                 className={`whitespace-nowrap px-5 py-2 rounded-full text-sm font-medium 
                   ${index === 0 ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-800 hover:bg-gray-300'} 
                   transition-all duration-300`}
