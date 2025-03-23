@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/Header';
@@ -25,7 +26,10 @@ const StarRating = ({ rating, reviews, showCount = true }: { rating: number, rev
   );
 };
 
-export default function CourseDetailsPage({ params }: { params: { courseId: string } }) {
+export default function CourseDetailsPage() {
+  const params = useParams();
+  const courseId = params.courseId as string;
+  
   const [course, setCourse] = useState<Course | null>(null);
   const [activeTab, setActiveTab] = useState('personal');
   const [expandedSections, setExpandedSections] = useState<string[]>([]);
@@ -33,7 +37,7 @@ export default function CourseDetailsPage({ params }: { params: { courseId: stri
 
   useEffect(() => {
     // In a real app, this would be an API call
-    const foundCourse = allCourses.find((c: Course) => c.id.toString() === params.courseId);
+    const foundCourse = allCourses.find((c: Course) => c.id.toString() === courseId);
     
     // Simulate API call delay
     setTimeout(() => {
@@ -119,6 +123,7 @@ export default function CourseDetailsPage({ params }: { params: { courseId: stri
       });
       setIsLoading(false);
     }, 500);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.courseId]);
 
   const toggleSection = (sectionTitle: string) => {
