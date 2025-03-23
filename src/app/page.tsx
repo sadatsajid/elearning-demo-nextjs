@@ -118,7 +118,7 @@ export default function HomePage() {
               </p>
               <div className="mt-8">
                 <Link
-                  href="/"
+                  href="/courses"
                   className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded text-white bg-indigo-600 hover:bg-indigo-700 transition-all duration-300"
                 >
                   Browse Courses
@@ -171,9 +171,10 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredCourses.map((course, index) => (
-              <div
+              <Link
+                href={`/courses/${course.id}`}
                 key={course.id}
-                className={`border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300
+                className={`block border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300
                   ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
                   transition-all duration-500 ease-out`}
                 style={{ transitionDelay: `${150 * index}ms` }}
@@ -201,13 +202,13 @@ export default function HomePage() {
                     <span className="ml-2 text-gray-500 line-through text-sm">${course.originalPrice}</span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
           <div className="mt-10 text-center">
             <Link
-              href="/"
+              href="/courses"
               className="inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               View all courses
@@ -259,7 +260,7 @@ export default function HomePage() {
               Sign up for free
             </Link>
             <Link
-              href="/"
+              href="/courses"
               className="inline-flex justify-center items-center px-6 py-3 border border-white text-base font-medium rounded-md text-white hover:bg-indigo-800 transition-colors duration-300"
             >
               Browse courses

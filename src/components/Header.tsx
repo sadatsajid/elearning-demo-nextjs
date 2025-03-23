@@ -15,6 +15,17 @@ export default function Header() {
                             <span className="text-xl font-bold">E-Learning Platform</span>
                         </Link>
 
+                        <div className="hidden md:block ml-10">
+                            <div className="flex items-baseline space-x-4">
+                                <Link
+                                    href="/courses"
+                                    className="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-indigo-500"
+                                >
+                                    Courses
+                                </Link>
+                            </div>
+                        </div>
+
                         {user && (
                             <div className="hidden md:block ml-10">
                                 <div className="flex items-baseline space-x-4">
